@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bj7vsikc4ecob"]
+
+[ext_resource type="Script" uid="uid://dcgoslxt584ie" path="res://scripts/masks/mask_pickup.gd" id="1_l1wn5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0u6w"]
+
+[node name="MaskPickup" type="Area2D" unique_id=1578793672]
+script = ExtResource("1_l1wn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1689005290]
+shape = SubResource("RectangleShape2D_n0u6w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2054998274]

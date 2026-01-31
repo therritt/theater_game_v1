@@ -8,12 +8,16 @@ var curr_dir: Direction = Direction.DOWN
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: StateMachine = $StateMachine
+@onready var mask_stack: MaskStack = $MaskStack
 
 func _ready() -> void:
 	anim.animation_finished.connect(_on_animation_finished)
 
 func _on_animation_finished() -> void:
 	state_machine.on_animation_finished(anim.animation)
+
+func add_mask(mask: Mask):
+	mask_stack.add_mask(mask)
 
 func update_direction(v: Vector2) -> void:
 	if abs(v.x) > abs(v.y):
@@ -27,19 +31,22 @@ func get_movement_input() -> Vector2:
 func is_moving() -> bool:
 	return get_movement_input() != Vector2.ZERO
 
-func play_anim(type: String, directionalName: bool = true) -> void:
+func play_anim(type: String, is_directional: bool = true, is_strict_dir: bool = true) -> void:
 	var dir_name := "front"
 
 	match curr_dir:
 		Direction.UP:
 			dir_name = "back"
-		Direction.LEFT, Direction.RIGHT:
-			dir_name = "side"
+		Direction.LEFT:
+			dir_name = "left" if is_strict_dir else "side"
+		Direction.RIGHT:
+			dir_name = "right" if is_strict_dir else "side"
 
-	anim.flip_h = curr_dir == Direction.LEFT
+	if (not is_strict_dir):
+		anim.flip_h = curr_dir == Direction.LEFT
 
 	var anim_name := type
-	if (directionalName):
+	if (is_directional):
 		anim_name = dir_name + "_" + type
 
 	if anim.animation != anim_name:

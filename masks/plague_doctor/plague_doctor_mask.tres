@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Mask" format=3 uid="uid://bkq5qvnpytiy2"]
+
+[ext_resource type="Script" uid="uid://bx3k3pvw7s42k" path="res://scripts/masks/mask.gd" id="1_6tiuu"]
+[ext_resource type="Texture2D" uid="uid://b1ptit4dpn4o" path="res://masks/plague_doctor/back_plague_doctor_mask.tres" id="2_jdhod"]
+[ext_resource type="Texture2D" uid="uid://b4ynbtegcxfl5" path="res://masks/plague_doctor/front_plague_doctor_mask.tres" id="3_mc0ks"]
+[ext_resource type="Texture2D" uid="uid://dgcrkscqxk3gs" path="res://masks/plague_doctor/side_plague_doctor_mask.tres" id="4_47ycm"]
+
+[resource]
+script = ExtResource("1_6tiuu")
+display_name = "Plague Doctor"
+sprite_front = ExtResource("3_mc0ks")
+sprite_side = ExtResource("4_47ycm")
+sprite_back = ExtResource("2_jdhod")
+metadata/_custom_type_script = "uid://bx3k3pvw7s42k"

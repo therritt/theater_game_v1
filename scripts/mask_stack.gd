@@ -1,27 +1,30 @@
-extends Node
+extends Node2D
 class_name MaskStack
 
 @export var max_masks := 10
 @export var sliver_offset := 1
 
+const FACE_HEIGHT = 33
 var masks: Array[Mask] = []
+var last_dir = null
 @onready var player = owner as Player
-
 @onready var visual_root := self
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(delta):
+	if player.curr_dir != last_dir:
+		last_dir = player.curr_dir
+		update_visuals()
 
 func add_mask(mask: Mask):
 	if masks.size() >= max_masks:
 		return
-
-	masks.append(mask)
+	
+	masks.append(mask.duplicate())
 	update_visuals()
 
 func pop_mask():
@@ -50,12 +53,12 @@ func _draw_front():
 	if masks.is_empty():
 		return
 
-	var front_mask: Mask = masks.back()
-	var sprite := Sprite2D.new()
-	sprite.texture = front_mask.sprite_front
-	sprite.z_index = 10
-	sprite.position = Vector2.ZERO
-	visual_root.add_child(sprite)
+	for mask in masks:
+		var sprite := Sprite2D.new()
+		sprite.texture = mask.sprite_front
+		sprite.z_index = 10
+		sprite.position = Vector2(0, -FACE_HEIGHT)
+		visual_root.add_child(sprite)
 
 func _draw_stack():
 	var y_offset := 0
@@ -63,11 +66,15 @@ func _draw_stack():
 	for mask in masks:
 		var sprite := Sprite2D.new()
 
-		if player.curr_dir == Player.Direction.DOWN:
+		if player.curr_dir in [Player.Direction.LEFT, Player.Direction.RIGHT]:
 			sprite.texture = mask.sprite_side
-			sprite.flip_h = player.curr_dir == Player.Direction.LEFT
+			var is_left = player.curr_dir == Player.Direction.LEFT
+			sprite.flip_h = is_left
+			var pos_mod = -1 if is_left else 1
+			sprite.position = Vector2(pos_mod * (y_offset + 1), -FACE_HEIGHT)
 		else:
 			sprite.texture = mask.sprite_back
+			sprite.position = Vector2(0, -FACE_HEIGHT - y_offset)
 
 		sprite.region_enabled = true
 		sprite.region_rect = Rect2(
@@ -77,7 +84,6 @@ func _draw_stack():
 			sprite.texture.get_height()
 		)
 
-		sprite.position = Vector2(0, -y_offset)
 		sprite.z_index = y_offset
 
 		visual_root.add_child(sprite)
