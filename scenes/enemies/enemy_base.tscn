@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://caydvc4i8umlr"]
+
+[ext_resource type="Script" uid="uid://d3umr8xr78t56" path="res://scripts/characters/enemy.gd" id="1_ifgcn"]
+[ext_resource type="Script" uid="uid://bmilx6p8v53d5" path="res://scripts/states/abstracts/state_machine.gd" id="2_0gelj"]
+[ext_resource type="Script" uid="uid://chkp5p3id0ono" path="res://scripts/states/character_states/enemy_states/enemy_idle.gd" id="3_66k1e"]
+[ext_resource type="Script" uid="uid://deaee3rifk2yu" path="res://scripts/states/character_states/enemy_states/enemy_chase.gd" id="4_jco0m"]
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=1279586487]
+script = ExtResource("1_ifgcn")
+metadata/_custom_type_script = "uid://d3umr8xr78t56"
+
+[node name="StateMachine" type="Node" parent="." unique_id=1399978740 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_0gelj")
+initial_state = NodePath("EnemyIdle")
+metadata/_custom_type_script = "uid://bmilx6p8v53d5"
+
+[node name="EnemyIdle" type="Node" parent="StateMachine" unique_id=2073340082]
+script = ExtResource("3_66k1e")
+metadata/_custom_type_script = "uid://chkp5p3id0ono"
+
+[node name="EnemyChase" type="Node" parent="StateMachine" unique_id=1293955374]
+script = ExtResource("4_jco0m")
+metadata/_custom_type_script = "uid://deaee3rifk2yu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=192174439]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=887299473]
