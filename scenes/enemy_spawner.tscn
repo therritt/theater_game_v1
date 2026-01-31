@@ -2,5 +2,52 @@
 
 [ext_resource type="Script" uid="uid://dxxhyiq0hr0ua" path="res://scripts/enemy_spawner.gd" id="1_ks1gq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ks1gq"]
+size = Vector2(4.560669, 20)
+
 [node name="enemy_spawner" type="Node2D" unique_id=1393163050]
 script = ExtResource("1_ks1gq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=592466335]
+position = Vector2(160, -10)
+scale = Vector2(4.640001, 1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=742996781]
+position = Vector2(-0.21551566, -1)
+rotation = 3.1415927
+scale = Vector2(19.120003, 1)
+shape = SubResource("RectangleShape2D_ks1gq")
+one_way_collision = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=68493360]
+position = Vector2(149, 192)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1591278817]
+position = Vector2(1, -1)
+scale = Vector2(91.01122, 1)
+shape = SubResource("RectangleShape2D_ks1gq")
+one_way_collision = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=974075785]
+position = Vector2(-11, 107)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1834047091]
+position = Vector2(0, -2)
+rotation = 1.5728947
+scale = Vector2(52.767986, 1)
+shape = SubResource("RectangleShape2D_ks1gq")
+one_way_collision = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=498437296]
+position = Vector2(330, 91)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1245387353]
+position = Vector2(1.0000305, 1.5258789e-05)
+rotation = 4.712389
+scale = Vector2(53.5376, 1)
+shape = SubResource("RectangleShape2D_ks1gq")
+one_way_collision = true
