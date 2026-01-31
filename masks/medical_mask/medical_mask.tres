@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Mask" format=3 uid="uid://nhhvxbie22ko"]
+
+[ext_resource type="Script" uid="uid://bx3k3pvw7s42k" path="res://scripts/masks/mask.gd" id="1_imekc"]
+[ext_resource type="Texture2D" uid="uid://bw8iqui5feiu6" path="res://masks/medical_mask/back_medical_mask.tres" id="2_3qcjr"]
+[ext_resource type="Texture2D" uid="uid://c2alw34pnpkbm" path="res://masks/medical_mask/front_medical_mask.tres" id="3_troa1"]
+[ext_resource type="Texture2D" uid="uid://bnbet8nxfc563" path="res://masks/medical_mask/side_medical_mask.tres" id="4_6b0ow"]
+
+[resource]
+script = ExtResource("1_imekc")
+display_name = "Medical Mask"
+sprite_front = ExtResource("3_troa1")
+sprite_side = ExtResource("4_6b0ow")
+sprite_back = ExtResource("2_3qcjr")
+metadata/_custom_type_script = "uid://bx3k3pvw7s42k"

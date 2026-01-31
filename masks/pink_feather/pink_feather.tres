@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Mask" format=3 uid="uid://dpahwbwcrycyi"]
+
+[ext_resource type="Script" uid="uid://bx3k3pvw7s42k" path="res://scripts/masks/mask.gd" id="1_12p1k"]
+[ext_resource type="Texture2D" uid="uid://dpp8yj15mi76x" path="res://masks/pink_feather/back_pink_feather.tres" id="2_s8s5d"]
+[ext_resource type="Texture2D" uid="uid://cfkbemvh7cvee" path="res://masks/pink_feather/front_pink_feather.tres" id="3_etutg"]
+[ext_resource type="Texture2D" uid="uid://drldhk08cyl78" path="res://masks/pink_feather/side_pink_feather.tres" id="4_a3rrx"]
+
+[resource]
+script = ExtResource("1_12p1k")
+display_name = "Pink Feather"
+sprite_front = ExtResource("3_etutg")
+sprite_side = ExtResource("4_a3rrx")
+sprite_back = ExtResource("2_s8s5d")
+metadata/_custom_type_script = "uid://bx3k3pvw7s42k"
