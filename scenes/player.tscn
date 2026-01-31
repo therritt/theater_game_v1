@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://d2qhuomx7u3bn"]
 
-[ext_resource type="Script" uid="uid://cbk1aofc31oep" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://cbk1aofc31oep" path="res://scripts/characters/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://c6wo8dv3v0xcs" path="res://art/characters/TheatrePlayer.png" id="2_tuyoq"]
 [ext_resource type="Script" uid="uid://bmilx6p8v53d5" path="res://scripts/states/abstracts/state_machine.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://fj3vnr40ayto" path="res://scripts/states/character_states/player_states/idle_state.gd" id="4_tuyoq"]
 [ext_resource type="Script" uid="uid://bqnik00jieqbr" path="res://scripts/states/character_states/player_states/move_state.gd" id="5_qlg0r"]
 [ext_resource type="Script" uid="uid://d1bycrfj8pi5n" path="res://scripts/states/character_states/player_states/attack_state.gd" id="6_tuyoq"]
-[ext_resource type="Script" uid="uid://cfi4w0f1xqbk7" path="res://scripts/mask_stack.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://cfi4w0f1xqbk7" path="res://scripts/masks/mask_stack.gd" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 radius = 6.0
@@ -150,7 +150,6 @@ shape = SubResource("CapsuleShape2D_fjrip")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=138803145]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_oprun")
-animation = &"front_idle"
 
 [node name="StateMachine" type="Node" parent="." unique_id=313882922 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_qhqgy")

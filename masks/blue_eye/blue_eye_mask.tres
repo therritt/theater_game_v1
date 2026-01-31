@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Mask" format=3 uid="uid://cjgkuocbwqhvf"]
+
+[ext_resource type="Script" uid="uid://bx3k3pvw7s42k" path="res://scripts/masks/mask.gd" id="1_bse34"]
+[ext_resource type="Texture2D" uid="uid://cwoepa0beyeqk" path="res://masks/blue_eye/back_blue_eye.tres" id="2_tuq3d"]
+[ext_resource type="Texture2D" uid="uid://cp8x31lu3l58x" path="res://masks/blue_eye/front_blue_eye.tres" id="3_egl3j"]
+[ext_resource type="Texture2D" uid="uid://di027oievtghs" path="res://masks/blue_eye/side_blue_eye.tres" id="4_m3lvt"]
+
+[resource]
+script = ExtResource("1_bse34")
+display_name = "Blue Eye Mask"
+sprite_front = ExtResource("3_egl3j")
+sprite_side = ExtResource("4_m3lvt")
+sprite_back = ExtResource("2_tuq3d")
+metadata/_custom_type_script = "uid://bx3k3pvw7s42k"
