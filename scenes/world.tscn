@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dmosvrp2bdym5"]
 
 [ext_resource type="Script" uid="uid://ds3uicbm1bdap" path="res://scripts/world.gd" id="1_71j4m"]
-[ext_resource type="PackedScene" uid="uid://d2qhuomx7u3bn" path="res://scenes/player.tscn" id="4_k0juu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwgxs"]
 size = Vector2(4.560669, 20)
@@ -10,11 +9,9 @@ size = Vector2(4.560669, 20)
 y_sort_enabled = true
 script = ExtResource("1_71j4m")
 
-[node name="player" parent="." unique_id=1597934439 instance=ExtResource("4_k0juu")]
-
 [node name="lz_top" type="Area2D" parent="." unique_id=989723414]
 position = Vector2(140, -22)
-scale = Vector2(2.2800007, 1)
+scale = Vector2(4.640001, 1)
 priority = 1
 metadata/_edit_group_ = true
 
@@ -24,8 +21,8 @@ scale = Vector2(19.120003, 1)
 shape = SubResource("RectangleShape2D_rwgxs")
 
 [node name="lz_bottom" type="Area2D" parent="." unique_id=1748755450]
-position = Vector2(140, 175)
-scale = Vector2(2.2800007, 1)
+position = Vector2(131, 220)
+scale = Vector2(4.7600007, 1)
 priority = 1
 metadata/_edit_group_ = true
 
@@ -35,9 +32,9 @@ scale = Vector2(19.120003, 1)
 shape = SubResource("RectangleShape2D_rwgxs")
 
 [node name="lz_right" type="Area2D" parent="." unique_id=151044480]
-position = Vector2(294.99997, 130)
+position = Vector2(342.00003, 105)
 rotation = 1.5728947
-scale = Vector2(2.2800007, 1)
+scale = Vector2(2.8000834, 1)
 priority = 1
 metadata/_edit_group_ = true
 
@@ -47,9 +44,9 @@ scale = Vector2(19.120003, 1)
 shape = SubResource("RectangleShape2D_rwgxs")
 
 [node name="lz_left" type="Area2D" parent="." unique_id=81926452]
-position = Vector2(-4, 131)
+position = Vector2(-19, 109)
 rotation = 1.5728947
-scale = Vector2(2.2800007, 1)
+scale = Vector2(2.7598317, 1)
 priority = 1
 metadata/_edit_group_ = true
 
@@ -59,3 +56,6 @@ scale = Vector2(19.120003, 1)
 shape = SubResource("RectangleShape2D_rwgxs")
 
 [connection signal="body_entered" from="lz_top" to="." method="_on_lz_top_character_body_entered"]
+[connection signal="body_entered" from="lz_bottom" to="." method="_on_lz_bottom_character_body_entered"]
+[connection signal="body_entered" from="lz_right" to="." method="_on_lz_right_character_body_entered"]
+[connection signal="body_entered" from="lz_left" to="." method="_on_lz_left_character_body_entered"]
