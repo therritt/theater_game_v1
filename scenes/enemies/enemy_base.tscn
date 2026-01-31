@@ -11,14 +11,14 @@ metadata/_custom_type_script = "uid://d3umr8xr78t56"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1399978740 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_0gelj")
-initial_state = NodePath("EnemyIdle")
+initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://bmilx6p8v53d5"
 
-[node name="EnemyIdle" type="Node" parent="StateMachine" unique_id=2073340082]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=2073340082]
 script = ExtResource("3_66k1e")
 metadata/_custom_type_script = "uid://chkp5p3id0ono"
 
-[node name="EnemyChase" type="Node" parent="StateMachine" unique_id=1293955374]
+[node name="Chase" type="Node" parent="StateMachine" unique_id=1293955374]
 script = ExtResource("4_jco0m")
 metadata/_custom_type_script = "uid://deaee3rifk2yu"
 

@@ -139,6 +139,8 @@ animations = [{
 }]
 
 [node name="FloatyHead" unique_id=1279586487 instance=ExtResource("1_6p2jv")]
+stop_range = 50
+speed = 70
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=192174439]
 position = Vector2(0, -5)

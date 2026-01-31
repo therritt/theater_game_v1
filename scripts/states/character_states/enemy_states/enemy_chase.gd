@@ -20,9 +20,6 @@ func physics_update(delta: float) -> void:
 	if dist > enemy.chase_range:
 		finished.emit("Idle")
 		return
-
-	# stop if close enough
-	# Maybe change this to attack!
-	if dist <= enemy.stop_range:
-		enemy.velocity = Vector2.ZERO
-		enemy.play_anim("idle")
+	elif dist <= enemy.stop_range:
+		# Maybe change this to attack!
+		print("attack ing")
