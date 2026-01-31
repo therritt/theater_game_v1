@@ -12,15 +12,50 @@ script = ExtResource("1_71j4m")
 
 [node name="player" parent="." unique_id=1597934439 instance=ExtResource("4_k0juu")]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=989723414]
+[node name="lz_top" type="Area2D" parent="." unique_id=989723414]
 position = Vector2(140, -22)
 scale = Vector2(2.2800007, 1)
 priority = 1
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=809403527]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lz_top" unique_id=809403527]
 position = Vector2(0, 1)
 scale = Vector2(19.120003, 1)
 shape = SubResource("RectangleShape2D_rwgxs")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_lz_top_character_body_entered"]
+[node name="lz_bottom" type="Area2D" parent="." unique_id=1748755450]
+position = Vector2(140, 175)
+scale = Vector2(2.2800007, 1)
+priority = 1
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lz_bottom" unique_id=295763460]
+position = Vector2(0, 1)
+scale = Vector2(19.120003, 1)
+shape = SubResource("RectangleShape2D_rwgxs")
+
+[node name="lz_right" type="Area2D" parent="." unique_id=151044480]
+position = Vector2(294.99997, 130)
+rotation = 1.5728947
+scale = Vector2(2.2800007, 1)
+priority = 1
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lz_right" unique_id=39999142]
+position = Vector2(0, 1)
+scale = Vector2(19.120003, 1)
+shape = SubResource("RectangleShape2D_rwgxs")
+
+[node name="lz_left" type="Area2D" parent="." unique_id=81926452]
+position = Vector2(-4, 131)
+rotation = 1.5728947
+scale = Vector2(2.2800007, 1)
+priority = 1
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lz_left" unique_id=2059462140]
+position = Vector2(0, 1)
+scale = Vector2(19.120003, 1)
+shape = SubResource("RectangleShape2D_rwgxs")
+
+[connection signal="body_entered" from="lz_top" to="." method="_on_lz_top_character_body_entered"]
