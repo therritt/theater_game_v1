@@ -10,7 +10,7 @@ func _ready() -> void:
 	while remaining > 0:
 		remaining -= 1
 		var curr_enemy = spawn_enemy(enemy_type)
-		#curr_enemy.died.connect(_on_enemy_death)
+		curr_enemy.died.connect(_on_enemy_death)
 		await get_tree().create_timer(enemy_interval).timeout
 
 func _on_enemy_death(dead_enemy: Enemy):
