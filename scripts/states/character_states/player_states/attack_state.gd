@@ -10,8 +10,9 @@ func enter(prev_state: String, data = {}):
 	attack.done.connect(_on_animation_finished)
 
 func physics_update(delta: float) -> void:
-	player.velocity = attack_dir * player.speed * 0.3
-	player.move_and_slide()
+	#player.velocity = attack_dir * player.speed * 0.3
+	#player.move_and_slide()
+	pass
 
 func _on_animation_finished():
 	if player.is_moving():
