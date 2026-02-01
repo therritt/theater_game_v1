@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://ujbb651by24q" path="res://art/objects/objects.png" id="3_p8nu4"]
 [ext_resource type="Texture2D" uid="uid://ck42y6q5ia2ad" path="res://art/tiles/Tiles - Copy.png" id="4_p8nu4"]
 [ext_resource type="Texture2D" uid="uid://crj2f8tv2dvpk" path="res://art/tiles/Tiles.png" id="4_wodat"]
-[ext_resource type="PackedScene" uid="uid://bj7vsikc4ecob" path="res://scenes/mask_pickup.tscn" id="6_y5lrh"]
+[ext_resource type="PackedScene" path="res://scenes/mask_pickup.tscn" id="6_y5lrh"]
 [ext_resource type="Resource" uid="uid://kru143iyvitr" path="res://masks/phantom/phantom_mask.tres" id="7_ow1e4"]
-[ext_resource type="PackedScene" uid="uid://eqj5juqi2ue3" path="res://scenes/enemies/floaty_head.tscn" id="8_wtcj1"]
+[ext_resource type="PackedScene" uid="uid://cd1ymju3ovc4i" path="res://scenes/spawner_trigger.tscn" id="8_y5lrh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8nu4"]
 texture = ExtResource("1_fbq1s")
@@ -135,8 +135,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAAAAEABAADAAAAABAAAAIAAwABAAA
 tile_set = SubResource("TileSet_ow1e4")
 
 [node name="MaskPickup" parent="." unique_id=1578793672 instance=ExtResource("6_y5lrh")]
-position = Vector2(44, 76)
+position = Vector2(215, 84)
 mask = ExtResource("7_ow1e4")
 
-[node name="FloatyHead" parent="." unique_id=1279586487 instance=ExtResource("8_wtcj1")]
-position = Vector2(310, 95)
+[node name="spawner_trigger" parent="MaskPickup" unique_id=1651436351 instance=ExtResource("8_y5lrh")]
+amount = 1
