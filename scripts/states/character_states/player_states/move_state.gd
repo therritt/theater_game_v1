@@ -16,5 +16,9 @@ func physics_update(delta: float) -> void:
 	var input_vector = player.get_movement_input()
 	player.update_direction(input_vector)
 	player.velocity = input_vector * owner.speed
+	
+	var soft_push = player.soft_collision.get_push_vector()
+	player.velocity += soft_push
+	
 	player.play_anim("walk")
 	player.move_and_slide()

@@ -4,6 +4,17 @@
 [ext_resource type="Script" uid="uid://bmilx6p8v53d5" path="res://scripts/states/abstracts/state_machine.gd" id="2_0gelj"]
 [ext_resource type="Script" uid="uid://chkp5p3id0ono" path="res://scripts/states/character_states/enemy_states/enemy_idle.gd" id="3_66k1e"]
 [ext_resource type="Script" uid="uid://deaee3rifk2yu" path="res://scripts/states/character_states/enemy_states/enemy_chase.gd" id="4_jco0m"]
+[ext_resource type="Script" uid="uid://q30r5sdnjjy7" path="res://scripts/states/character_states/enemy_states/enemy_death.gd" id="5_xdb20"]
+[ext_resource type="Script" uid="uid://bebqy12c6twfx" path="res://scripts/characters/enemy_hitbox.gd" id="6_evjv1"]
+[ext_resource type="Script" uid="uid://c1rcb2vt21f8b" path="res://scripts/characters/soft_collision.gd" id="7_qkgnu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qkgnu"]
+radius = 7.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ratdf"]
+radius = 7.0
+height = 28.0
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=1279586487]
 script = ExtResource("1_ifgcn")
@@ -22,6 +33,22 @@ metadata/_custom_type_script = "uid://chkp5p3id0ono"
 script = ExtResource("4_jco0m")
 metadata/_custom_type_script = "uid://deaee3rifk2yu"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=192174439]
+[node name="Death" type="Node" parent="StateMachine" unique_id=1199021680]
+script = ExtResource("5_xdb20")
+metadata/_custom_type_script = "uid://jbycllywr8t"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=887299473]
+
+[node name="EnemyHitbox" type="Area2D" parent="." unique_id=1204401785]
+script = ExtResource("6_evjv1")
+metadata/_custom_type_script = "uid://bebqy12c6twfx"
+
+[node name="HitBox" type="CollisionShape2D" parent="EnemyHitbox" unique_id=139726143]
+shape = SubResource("CapsuleShape2D_qkgnu")
+
+[node name="SoftCollision" type="Area2D" parent="." unique_id=806264632]
+script = ExtResource("7_qkgnu")
+metadata/_custom_type_script = "uid://c1rcb2vt21f8b"
+
+[node name="CollisionBox" type="CollisionShape2D" parent="SoftCollision" unique_id=689123943]
+shape = SubResource("CapsuleShape2D_ratdf")

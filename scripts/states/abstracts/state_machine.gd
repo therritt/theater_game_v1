@@ -12,6 +12,10 @@ func _ready() -> void:
 		state_node.finished.connect(_transition_to_next_state)
 
 	await owner.ready
+	if owner.has_signal("died"):
+		(owner as Character).died.connect(func(char):
+			_transition_to_next_state("Death"))
+	
 	state.enter("")
 
 func on_animation_finished(anim_name: String) -> void:
