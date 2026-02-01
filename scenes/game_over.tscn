@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byfdwd2w4v37g"]
+
+[ext_resource type="Texture2D" uid="uid://c5jroicwywcp5" path="res://art/Gameover.png" id="1_xeevv"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1223436482]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1229225262]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_xeevv")
+
+[node name="Button" type="Button" parent="." unique_id=441898192]
+offset_left = 111.0
+offset_top = 35.0
+offset_right = 223.0
+offset_bottom = 63.0
+text = "Reset"
