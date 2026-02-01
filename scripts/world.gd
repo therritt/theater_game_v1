@@ -36,6 +36,30 @@ func game_over(dead_player: Character):
 	if dead_player is Player:
 		var game_over_screen = GAME_OVER.instantiate()
 		add_child(game_over_screen)
+		var animation_player: AnimationPlayer = game_over_screen.get_child(2)
+		animation_player.play("descend")
+		
+		
+		
+		
+		#await game_over_screen.ready
+		#var viewport_size = get_viewport_rect().size
+
+		#game_over_screen.position = Vector2(
+		#	(viewport_size.x - game_over_screen.size.x) / 2,
+		#	-game_over_screen.size.y
+		#)
+
+		#var tween = create_tween()
+		#tween.tween_property(
+		#	game_over_screen,
+		#	"position",
+		#	Vector2(
+		#		game_over_screen.position.x,
+		#		(viewport_size.y - game_over_screen.size.y) / 2
+		#	),
+		#	0.6
+		#).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func _on_lz_top_character_body_entered(body: Node2D) -> void:
 	if body is Player:
