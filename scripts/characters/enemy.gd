@@ -9,5 +9,6 @@ class_name Enemy
 var target: Player = null
 
 func _ready() -> void:
+	super._ready()
 	var root_scene = get_tree().get_current_scene()
 	target = root_scene.get_node_or_null("Player")

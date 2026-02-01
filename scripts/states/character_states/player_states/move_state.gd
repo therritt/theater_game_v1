@@ -5,6 +5,7 @@ func enter(prev_state: String, data = {}) -> void:
 	
 func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
+		player.set_attack_target_from_mouse()
 		finished.emit("Attack")
 
 

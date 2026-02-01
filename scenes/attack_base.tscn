@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bi2j6admjpun8"]
+
+[ext_resource type="Texture2D" uid="uid://5lseqlr3xaix" path="res://art/attacks/default_attack.png" id="1_2hfmq"]
+[ext_resource type="Script" uid="uid://bd16v20u5rab0" path="res://scripts/attacks/attack_base.gd" id="1_6m31c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m31c"]
+atlas = ExtResource("1_2hfmq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtxa2"]
+atlas = ExtResource("1_2hfmq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouxbx"]
+atlas = ExtResource("1_2hfmq")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wgh1"]
+atlas = ExtResource("1_2hfmq")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3a4m"]
+atlas = ExtResource("1_2hfmq")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cu1ju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m31c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtxa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouxbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wgh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3a4m")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hfmq"]
+size = Vector2(16, 31)
+
+[node name="AttackBase" type="Node2D" unique_id=468513884]
+script = ExtResource("1_6m31c")
+metadata/_custom_type_script = "uid://bd16v20u5rab0"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1506169787]
+sprite_frames = SubResource("SpriteFrames_cu1ju")
+animation = &"attack"
+frame = 2
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=459977927]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=705658717]
+position = Vector2(11, 0.5)
+shape = SubResource("RectangleShape2D_2hfmq")

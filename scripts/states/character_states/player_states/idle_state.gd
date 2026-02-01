@@ -6,8 +6,9 @@ func enter(prev_state: String, data = {}) -> void:
 
 func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
+		player.set_attack_target_from_mouse()
 		finished.emit("Attack")
-		
+
 func physics_update(delta: float) -> void:
 	var soft_push = player.soft_collision.get_push_vector()
 	player.velocity += soft_push

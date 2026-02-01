@@ -27,12 +27,15 @@ func add_mask(mask: Mask):
 	masks.append(mask.duplicate())
 	update_visuals()
 
+func get_top_mask() -> Mask:
+	return masks.back() if masks.size() > 0 else null
+
 func pop_mask():
 	if masks.is_empty():
 		return
 	masks.pop_back()
 	update_visuals()
-	
+
 func move_mask(from_idx: int, to_idx: int):
 	var mask := masks[from_idx]
 	masks.remove_at(from_idx)
@@ -56,7 +59,7 @@ func _draw_front():
 	for mask in masks:
 		var sprite := Sprite2D.new()
 		sprite.texture = mask.sprite_front
-		sprite.z_index = 10
+		#sprite.z_index = 10
 		sprite.position = Vector2(0, -FACE_HEIGHT)
 		visual_root.add_child(sprite)
 
@@ -84,7 +87,7 @@ func _draw_stack():
 			sprite.texture.get_height()
 		)
 
-		sprite.z_index = y_offset
+		#sprite.z_index = y_offset
 
 		visual_root.add_child(sprite)
 		y_offset += sliver_offset

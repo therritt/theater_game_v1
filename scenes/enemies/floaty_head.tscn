@@ -138,7 +138,8 @@ animations = [{
 [node name="FloatyHead" unique_id=1279586487 instance=ExtResource("1_6p2jv")]
 chase_range = 300
 stop_range = 50
-speed = 70
+max_hp = 3
+speed = 40
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=887299473]
 position = Vector2(0, -32)

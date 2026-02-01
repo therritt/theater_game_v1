@@ -13,5 +13,5 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is Player:
-		(body as Player).mask_stack.add_mask(mask)
+		(body as Player).add_mask(mask)
 		queue_free()
