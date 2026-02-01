@@ -11,7 +11,7 @@ const FOURTH_ROOM = preload("res://scenes/rooms/room_4.tscn")
 const FIFTH_ROOM = preload("res://scenes/rooms/room_5.tscn")
 const GAME_OVER = preload("res://scenes/game_over.tscn")
 # room array can be customized
-var room_array = [[FIRST_ROOM.instantiate(), SECOND_ROOM.instantiate(), THIRD_ROOM.instantiate(), FOURTH_ROOM.instantiate(), FIFTH_ROOM.instantiate()]]
+var room_array = [[FIRST_ROOM.instantiate(), SECOND_ROOM.instantiate(), THIRD_ROOM.instantiate(), FIFTH_ROOM.instantiate()],[null, FIRST_ROOM.instantiate(), FOURTH_ROOM.instantiate(), FIFTH_ROOM.instantiate()]]
 var ldy # dimensions of room_array. make sure sub-arrays are consistent with each other pls
 var ldx
 var room_position = [0,0]
