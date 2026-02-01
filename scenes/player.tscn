@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2qhuomx7u3bn"]
 
 [ext_resource type="Script" uid="uid://cbk1aofc31oep" path="res://scripts/characters/player.gd" id="1_g2els"]
+[ext_resource type="Resource" uid="uid://chotrv416yham" path="res://scripts/attacks/default_attack.tres" id="2_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://c6wo8dv3v0xcs" path="res://art/characters/TheatrePlayer.png" id="2_tuyoq"]
 [ext_resource type="Script" uid="uid://bmilx6p8v53d5" path="res://scripts/states/abstracts/state_machine.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://fj3vnr40ayto" path="res://scripts/states/character_states/player_states/idle_state.gd" id="4_tuyoq"]
@@ -153,6 +154,7 @@ height = 28.0
 [node name="Player" type="CharacterBody2D" unique_id=47090387]
 y_sort_enabled = true
 script = ExtResource("1_g2els")
+default_attack = ExtResource("2_d2wvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=325299216]
 position = Vector2(0, -9)

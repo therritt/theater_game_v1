@@ -4,23 +4,21 @@ var attack_dir
 
 func enter(prev_state: String, data = {}):
 	super.enter(prev_state, data)
-	
-	# Don't move while attacking if you were idle
-	if prev_state == IDLE:
-		attack_dir = Vector2.ZERO
-	else:
-		attack_dir = player.velocity.normalized()
-		
-	player.velocity = Vector2.ZERO
-	player.play_anim("attack")
+	#player.velocity = Vector2.ZERO
+	attack_dir = (player.attack_target_pos - player.global_position).normalized()
+	var attack = player.perform_attack(player.attack_target_pos)
+	attack.done.connect(_on_animation_finished)
 
 func physics_update(delta: float) -> void:
 	player.velocity = attack_dir * player.speed * 0.3
 	player.move_and_slide()
 
+func _on_animation_finished():
+	if player.is_moving():
+		finished.emit(MOVING)
+	else:
+		finished.emit(IDLE)
+
 func on_animation_finished(anim_name: String) -> void:
 	if anim_name.ends_with("attack"):
-		if player.is_moving():
-			finished.emit(MOVING)
-		else:
-			finished.emit(IDLE)
+		_on_animation_finished()

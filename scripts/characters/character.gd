@@ -11,13 +11,20 @@ signal died(character: Character)
 @export var knockback_str := 200
 
 var invincible := false
-var curr_hp := max_hp
+var curr_hp: int
 var is_dead := false
 var curr_dir: Direction = Direction.DOWN
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var soft_collision: SoftCollision = $SoftCollision
+
+func _ready() -> void:
+	curr_hp = max_hp
+	anim.animation_finished.connect(_on_animation_finished)
+
+func _on_animation_finished() -> void:
+	state_machine.on_animation_finished(anim.animation)
 
 func update_direction(v: Vector2) -> void:
 	if abs(v.x) > abs(v.y):
@@ -46,21 +53,22 @@ func play_anim(type: String, is_directional: bool = true, is_strict_dir: bool = 
 	if anim.animation != anim_name:
 		anim.play(anim_name)
 
-var hp := 10
-
-func take_damage(damage: int, knockback: int, source_pos: Vector2):
+func take_damage(damage: int, knockback: float, source_pos: Vector2):
 	if invincible:
 		return
 
+	print("max_hp: ", max_hp)
+	print("curr_hp: ", curr_hp)
+	print("damage: ", damage)
+
 	invincible = true
-	hp -= damage
-
-	print("Player hit! HP:", hp)
-
-	apply_knockback(source_pos)
+	curr_hp -= damage
+	
+	_on_damage_taken()
+	apply_knockback(source_pos, knockback)
 	play_hurt_feedback()
 
-	if hp <= 0:
+	if curr_hp <= 0:
 		is_dead = true
 		died.emit(self)
 		return
@@ -69,9 +77,12 @@ func take_damage(damage: int, knockback: int, source_pos: Vector2):
 		func(): invincible = false
 	)
 
-func apply_knockback(source_pos: Vector2):
+func _on_damage_taken() -> void:
+	pass
+
+func apply_knockback(source_pos: Vector2, knockback: float):
 	var dir = (global_position - source_pos).normalized()
-	velocity += dir * knockback_str
+	velocity += dir * knockback
 	move_and_slide()
 
 func play_hurt_feedback():

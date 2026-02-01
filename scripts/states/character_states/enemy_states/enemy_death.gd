@@ -5,5 +5,6 @@ func enter(prev_state: String, data = {}) -> void:
 	enemy.play_anim("death", false, false)
 
 func on_animation_finished(anim_name: String) -> void:
+	print("Enemy: ", anim_name)
 	if anim_name.ends_with("death"):
-		queue_free()
+		enemy.queue_free()

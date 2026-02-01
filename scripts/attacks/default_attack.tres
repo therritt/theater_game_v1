@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attack" format=3 uid="uid://chotrv416yham"]
+
+[ext_resource type="PackedScene" uid="uid://bi2j6admjpun8" path="res://scenes/attack_base.tscn" id="1_2u23c"]
+[ext_resource type="Script" uid="uid://jrgxqe0ndgjq" path="res://scripts/attacks/attack_resource.gd" id="1_k860q"]
+
+[resource]
+script = ExtResource("1_k860q")
+range = 30.0
+attack_scene = ExtResource("1_2u23c")
+metadata/_custom_type_script = "uid://jrgxqe0ndgjq"

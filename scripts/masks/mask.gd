@@ -6,6 +6,8 @@ class_name Mask
 @export var defense_bonus: int = 0
 @export var speed_modifier: float = 1.0
 
+@export var attack: Attack
+
 @export var sprite_front: Texture2D
 @export var sprite_side: Texture2D
 @export var sprite_back: Texture2D

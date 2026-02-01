@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmosvrp2bdym5"]
 
 [ext_resource type="Script" uid="uid://ds3uicbm1bdap" path="res://scripts/world.gd" id="1_71j4m"]
+[ext_resource type="AudioStream" uid="uid://bc8i7guah6qkj" path="res://misc/Classicals.de - Beethoven - Coriolan Overture - Op.62.mp3" id="2_rwgxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwgxs"]
 size = Vector2(4.560669, 20)
@@ -54,6 +55,10 @@ metadata/_edit_group_ = true
 position = Vector2(0, 1)
 scale = Vector2(19.120003, 1)
 shape = SubResource("RectangleShape2D_rwgxs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1049045574]
+stream = ExtResource("2_rwgxs")
+autoplay = true
 
 [connection signal="body_entered" from="lz_top" to="." method="_on_lz_top_character_body_entered"]
 [connection signal="body_entered" from="lz_bottom" to="." method="_on_lz_bottom_character_body_entered"]
