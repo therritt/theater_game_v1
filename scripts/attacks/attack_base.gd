@@ -17,10 +17,7 @@ func setup(char: Player, dir: Vector2, attack_data: Attack):
 
 func _ready():
 	rotation = direction.angle()
-	print(data.range)
-	print(position)
 	position += direction * data.range
-	print(position)
 	
 	anim.animation_finished.connect(_on_animation_finished)
 	anim.play("attack")

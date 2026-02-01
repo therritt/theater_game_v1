@@ -16,6 +16,9 @@ func _ready() -> void:
 func _on_enemy_death(dead_enemy: Enemy):
 	dead_enemies += 1
 	if dead_enemies >= enemy_amount:
+		var room = get_parent()
+		if room and room.name == "room5":
+			(room.get_parent() as World).win()
 		queue_free()
 
 func spawn_enemy(type) -> Enemy:

@@ -1,4 +1,5 @@
 extends Node2D
+class_name World
 
 var room
 var player
@@ -10,6 +11,7 @@ const THIRD_ROOM = preload("res://scenes/rooms/room_3.tscn")
 const FOURTH_ROOM = preload("res://scenes/rooms/room_4.tscn")
 const FIFTH_ROOM = preload("res://scenes/rooms/room_5.tscn")
 const GAME_OVER = preload("res://scenes/game_over.tscn")
+const WIN = preload("res://scenes/win.tscn")
 # room array can be customized
 var room_array = [[FIRST_ROOM.instantiate(), SECOND_ROOM.instantiate(), THIRD_ROOM.instantiate(), FIFTH_ROOM.instantiate()],[null, FIRST_ROOM.instantiate(), FOURTH_ROOM.instantiate(), FIFTH_ROOM.instantiate()]]
 var ldy # dimensions of room_array. make sure sub-arrays are consistent with each other pls
@@ -38,28 +40,12 @@ func game_over(dead_player: Character):
 		add_child(game_over_screen)
 		var animation_player: AnimationPlayer = game_over_screen.get_child(2)
 		animation_player.play("descend")
-		
-		
-		
-		
-		#await game_over_screen.ready
-		#var viewport_size = get_viewport_rect().size
 
-		#game_over_screen.position = Vector2(
-		#	(viewport_size.x - game_over_screen.size.x) / 2,
-		#	-game_over_screen.size.y
-		#)
-
-		#var tween = create_tween()
-		#tween.tween_property(
-		#	game_over_screen,
-		#	"position",
-		#	Vector2(
-		#		game_over_screen.position.x,
-		#		(viewport_size.y - game_over_screen.size.y) / 2
-		#	),
-		#	0.6
-		#).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+func win():
+	var win_screen = WIN.instantiate()
+	add_child(win_screen)
+	var animation_player: AnimationPlayer = win_screen.get_child(2)
+	animation_player.play("descend")
 
 func _on_lz_top_character_body_entered(body: Node2D) -> void:
 	if body is Player:
