@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Mask" format=3 uid="uid://kru143iyvitr"]
+
+[ext_resource type="Script" uid="uid://bx3k3pvw7s42k" path="res://scripts/masks/mask.gd" id="1_ij43e"]
+[ext_resource type="Texture2D" uid="uid://bn3h5qqrv4gag" path="res://masks/phantom/back_phantom.tres" id="2_4hp71"]
+[ext_resource type="Texture2D" uid="uid://csw7n2a5c123l" path="res://masks/phantom/front_phantom.tres" id="3_pvjh2"]
+[ext_resource type="Texture2D" uid="uid://dofpvgxowqj83" path="res://masks/phantom/side_phantom.tres" id="4_4umr1"]
+
+[resource]
+script = ExtResource("1_ij43e")
+display_name = "Phantom"
+sprite_front = ExtResource("3_pvjh2")
+sprite_side = ExtResource("4_4umr1")
+sprite_back = ExtResource("2_4hp71")
+metadata/_custom_type_script = "uid://bx3k3pvw7s42k"
