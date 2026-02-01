@@ -11,7 +11,7 @@ const FOURTH_ROOM = preload("res://scenes/rooms/room_4.tscn")
 const FIFTH_ROOM = preload("res://scenes/rooms/room_5.tscn")
 const GAME_OVER = preload("res://scenes/game_over.tscn")
 # room array can be customized
-var room_array = [[FIRST_ROOM, SECOND_ROOM], [THIRD_ROOM,FOURTH_ROOM]]
+var room_array = [[FIRST_ROOM, SECOND_ROOM, THIRD_ROOM, FOURTH_ROOM, FIFTH_ROOM]]
 var ldy # dimensions of room_array. make sure sub-arrays are consistent with each other pls
 var ldx
 var room_position = [0,0]
@@ -29,7 +29,7 @@ func _ready() -> void:
 
 func next_room() -> Node2D:
 	var next = room_array[room_position[0]][room_position[1]].instantiate()
-	add_child(next)
+	add_child.call_deferred(next)
 	return next
 
 func game_over(dead_player: Character):
