@@ -3,11 +3,21 @@ class_name Character
 
 enum Direction { DOWN, UP, LEFT, RIGHT }
 
+signal died(character: Character)
+
+@export var max_hp := 1
 @export var speed := 100
+@export var invincibility_time := 0.5
+@export var knockback_str := 200
+
+var invincible := false
+var curr_hp := max_hp
+var is_dead := false
 var curr_dir: Direction = Direction.DOWN
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: StateMachine = $StateMachine
+@onready var soft_collision: SoftCollision = $SoftCollision
 
 func update_direction(v: Vector2) -> void:
 	if abs(v.x) > abs(v.y):
@@ -35,3 +45,37 @@ func play_anim(type: String, is_directional: bool = true, is_strict_dir: bool = 
 
 	if anim.animation != anim_name:
 		anim.play(anim_name)
+
+var hp := 10
+
+func take_damage(damage: int, knockback: int, source_pos: Vector2):
+	if invincible:
+		return
+
+	invincible = true
+	hp -= damage
+
+	print("Player hit! HP:", hp)
+
+	apply_knockback(source_pos)
+	play_hurt_feedback()
+
+	if hp <= 0:
+		is_dead = true
+		died.emit(self)
+		return
+
+	get_tree().create_timer(invincibility_time).timeout.connect(
+		func(): invincible = false
+	)
+
+func apply_knockback(source_pos: Vector2):
+	var dir = (global_position - source_pos).normalized()
+	velocity += dir * knockback_str
+	move_and_slide()
+
+func play_hurt_feedback():
+	anim.modulate = Color(1, 1, 1, 0.5)
+	get_tree().create_timer(0.1).timeout.connect(
+		func(): anim.modulate = Color.WHITE
+	)

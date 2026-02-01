@@ -1,6 +1,8 @@
 extends Character
 class_name Enemy
 
+@export var damage := 1
+@export var damage_interval := 1
 @export var chase_range := 200
 @export var stop_range := 16
 

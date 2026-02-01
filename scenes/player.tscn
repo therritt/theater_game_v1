@@ -7,10 +7,13 @@
 [ext_resource type="Script" uid="uid://bqnik00jieqbr" path="res://scripts/states/character_states/player_states/move_state.gd" id="5_qlg0r"]
 [ext_resource type="Script" uid="uid://d1bycrfj8pi5n" path="res://scripts/states/character_states/player_states/attack_state.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://cfi4w0f1xqbk7" path="res://scripts/masks/mask_stack.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://nqq88qep7bir" path="res://scripts/states/character_states/player_states/death_state.gd" id="7_smehm"]
+[ext_resource type="Script" uid="uid://ccc7863ijitgn" path="res://scripts/characters/player_hitbox.gd" id="9_ur7pv"]
+[ext_resource type="Script" uid="uid://c1rcb2vt21f8b" path="res://scripts/characters/soft_collision.gd" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 radius = 6.0
-height = 20.0
+height = 14.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_tuyoq")
@@ -139,17 +142,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
+radius = 8.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
+radius = 8.0
+height = 38.0
+
 [node name="Player" type="CharacterBody2D" unique_id=47090387]
 y_sort_enabled = true
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=325299216]
-position = Vector2(0, -8)
+position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_fjrip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=138803145]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_oprun")
+animation = &"back_idle"
 
 [node name="StateMachine" type="Node" parent="." unique_id=313882922 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_qhqgy")
@@ -165,5 +177,25 @@ script = ExtResource("5_qlg0r")
 script = ExtResource("6_tuyoq")
 metadata/_custom_type_script = "uid://d4eggrmu6yxdy"
 
+[node name="Death" type="Node" parent="StateMachine" unique_id=1318017037]
+script = ExtResource("7_smehm")
+metadata/_custom_type_script = "uid://d4eggrmu6yxdy"
+
 [node name="MaskStack" type="Node2D" parent="." unique_id=2095997844]
 script = ExtResource("7_fjrip")
+
+[node name="PlayerHitbox" type="Area2D" parent="." unique_id=1715035146]
+script = ExtResource("9_ur7pv")
+metadata/_custom_type_script = "uid://ccc7863ijitgn"
+
+[node name="Hitbox" type="CollisionShape2D" parent="PlayerHitbox" unique_id=95450973]
+position = Vector2(0, -19)
+shape = SubResource("CapsuleShape2D_y4r1p")
+
+[node name="SoftCollision" type="Area2D" parent="." unique_id=701052385]
+script = ExtResource("10_y4r1p")
+metadata/_custom_type_script = "uid://c1rcb2vt21f8b"
+
+[node name="PushBox" type="CollisionShape2D" parent="SoftCollision" unique_id=1082750719]
+position = Vector2(0, -19)
+shape = SubResource("CapsuleShape2D_d2wvv")

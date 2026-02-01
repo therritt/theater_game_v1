@@ -9,5 +9,11 @@ func handle_input(event: InputEvent) -> void:
 		finished.emit("Attack")
 		
 func physics_update(delta: float) -> void:
+	var soft_push = player.soft_collision.get_push_vector()
+	player.velocity += soft_push
+
+	player.move_and_slide()
+	player.velocity = Vector2.ZERO
+	
 	if player.is_moving():
 		finished.emit(MOVING)
