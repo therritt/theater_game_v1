@@ -138,3 +138,5 @@ position = Vector2(160, 85)
 mask = ExtResource("7_ue28d")
 
 [node name="spawner_trigger" parent="MaskPickup" unique_id=1651436351 instance=ExtResource("8_t6a0t")]
+amount = 6
+interval = 0.7
