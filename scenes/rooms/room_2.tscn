@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dpahwbwcrycyi" path="res://masks/pink_feather/pink_feather.tres" id="6_tjvhs"]
 [ext_resource type="PackedScene" uid="uid://cd1ymju3ovc4i" path="res://scenes/spawner_trigger.tscn" id="7_np14n"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nu3hr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hwry"]
 texture = ExtResource("1_ar6ir")
 0:0/0 = 0
 1:0/0 = 0
@@ -55,11 +55,11 @@ texture = ExtResource("1_ar6ir")
 2:7/0 = 0
 3:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjvhs"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nu3hr"]
 texture = ExtResource("2_0g03g")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_np14n"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjvhs"]
 texture = ExtResource("3_km8ef")
 0:0/0 = 0
 0:0/0/y_sort_origin = 4
@@ -95,7 +95,7 @@ texture = ExtResource("3_km8ef")
 11:2/0/y_sort_origin = -9
 11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.865082, 14.959076, -8, -8, 8, -8, 8.173515, 15.267509)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbn3u"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_np14n"]
 texture = ExtResource("4_km8ef")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -109,10 +109,10 @@ texture = ExtResource("4_km8ef")
 
 [sub_resource type="TileSet" id="TileSet_np14n"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_nu3hr")
-sources/1 = SubResource("TileSetAtlasSource_tjvhs")
-sources/2 = SubResource("TileSetAtlasSource_np14n")
-sources/4 = SubResource("TileSetAtlasSource_sbn3u")
+sources/0 = SubResource("TileSetAtlasSource_0hwry")
+sources/1 = SubResource("TileSetAtlasSource_nu3hr")
+sources/2 = SubResource("TileSetAtlasSource_tjvhs")
+sources/4 = SubResource("TileSetAtlasSource_np14n")
 
 [node name="room2" type="Node2D" unique_id=1764713564]
 
