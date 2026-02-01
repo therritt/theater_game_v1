@@ -13,7 +13,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 radius = 6.0
-height = 14.0
+height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_tuyoq")
@@ -144,18 +144,18 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
 radius = 8.0
-height = 38.0
+height = 28.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
 radius = 8.0
-height = 38.0
+height = 28.0
 
 [node name="Player" type="CharacterBody2D" unique_id=47090387]
 y_sort_enabled = true
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=325299216]
-position = Vector2(0, -7)
+position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_fjrip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=138803145]
@@ -189,7 +189,7 @@ script = ExtResource("9_ur7pv")
 metadata/_custom_type_script = "uid://ccc7863ijitgn"
 
 [node name="Hitbox" type="CollisionShape2D" parent="PlayerHitbox" unique_id=95450973]
-position = Vector2(0, -19)
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_y4r1p")
 
 [node name="SoftCollision" type="Area2D" parent="." unique_id=701052385]
@@ -197,5 +197,5 @@ script = ExtResource("10_y4r1p")
 metadata/_custom_type_script = "uid://c1rcb2vt21f8b"
 
 [node name="PushBox" type="CollisionShape2D" parent="SoftCollision" unique_id=1082750719]
-position = Vector2(0, -19)
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_d2wvv")

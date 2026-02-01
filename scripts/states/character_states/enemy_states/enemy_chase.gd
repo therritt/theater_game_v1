@@ -13,11 +13,8 @@ func physics_update(delta: float) -> void:
 	enemy.update_direction(dir)
 
 	enemy.velocity = dir * enemy.speed
-	print("first velocity", enemy.velocity)
 	var soft_push = enemy.soft_collision.get_push_vector()
 	enemy.velocity += soft_push
-	print(soft_push)
-	print("velocity + push", enemy.velocity)
 	enemy.move_and_slide()
 
 	# stop chasing if far away
